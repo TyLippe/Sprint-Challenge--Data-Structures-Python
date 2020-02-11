@@ -15,14 +15,19 @@ f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-#for loop that inserts names into bst
-for names in names_1:
-    bst.insert(names)
+# # for loop that inserts names into bst
+# for names in names_1:
+#     bst.insert(names)
 
-#for loop to compare names_2 to bst, if name is found we will append to the given dup list we have
-for names in names_2:
-    if bst.contains(names):
-        duplicates.append(names)
+# # for loop to compare names_2 to bst, if name is found we will append to the given dup list we have
+# for names in names_2:
+#     if bst.contains(names):
+#         duplicates.append(names)
+
+
+duplicates = set(names_1).intersection(set(names_2))
+
+
 
 #go away slow code
 # for name_1 in names_1:
@@ -30,7 +35,7 @@ for names in names_2:
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
-
+#check out for each method!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
